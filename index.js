@@ -23,7 +23,7 @@ const exactpath=path.join(__dirname,'views')
 
 
 
-app.get('/home', (req, res) => {
+app.get('/', (req, res) => {
    res.render('home')
 })
 app.get('/signup', (req, res) => {
@@ -35,9 +35,7 @@ app.get('/signin', (req, res) => {
 app.get('/forget', (req, res) => {
    res.render('forget')
 })
-app.get('/', (req, res) => {
-   res.send("Hello")
-})
+
 
 
 
