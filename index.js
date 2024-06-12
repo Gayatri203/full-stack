@@ -17,9 +17,9 @@ const ejs = require('ejs')
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'))
 
-// console.log("this is path",__dirname)
+
 const exactpath=path.join(__dirname,'views')
-// console.log("this is exact path",exactpath)
+
 
 
 
@@ -35,6 +35,11 @@ app.get('/signin', (req, res) => {
 app.get('/forget', (req, res) => {
    res.render('forget')
 })
+app.get('/', (req, res) => {
+   res.send("Hello")
+})
+
+
 
 app.post('/forget', async (req, res) => {
    const emailexist = await model_cons.findOne({ email: req.body.email })
@@ -95,6 +100,7 @@ app.post('/signin', async (req, res) => {
    }
 })
 
+const Port =process.env.PORT || 3000;
 app.listen(3000, () => {
    console.log("my server is running on 3000 port")
 })
